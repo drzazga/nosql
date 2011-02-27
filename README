@@ -1,0 +1,2 @@
+Skypt importujacy baze filmow ze strony http://www.themoviedb.org/. Aby skrypt dzialal poprawnie nalezy uzupelnic pola w pliku konfiguracyjnym odpowiednimi danymi.
+Klucz do API strony mozna pobrac rejestruj sie tu: http://www.themoviedb.org/account/signup. 
