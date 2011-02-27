@@ -3,9 +3,7 @@
 require 'rubygems'
 require 'couchrest'
 require 'yajl'
-require 'pp'
 require 'open-uri'
-require 'json'
 require 'net/http'
 require 'yaml'
 
