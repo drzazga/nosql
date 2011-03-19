@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Movies</title>
+    <link type="text/css" href="css/jquery-ui-1.8.11.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>
+    <script type="text/javascript" src="js/protovis-r3.2.js"></script>
+    <script type="text/javascript" src="js/data_year.js"></script>
+    <script type="text/javascript" src="js/data_runtime.js"></script>
+    
+    <script>
+      $(function(){
+        $('#tabs').tabs();
+	  });
+	</script>
+    <style type="text/css">
+        body {
+          background: rgb(220, 220, 210);
+          width: 1565px;
+        }
+
+    </style>
+  </head>
+  <body>
+      <div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Movies by year</a></li>
+		<li><a href="#tabs-2">Movies by runtime</a></li>
+	</ul>
+	<div id="tabs-1">
+        <script type="text/javascript+protovis">
+            /* Basic dimensions. */
+            var width = 1525, height = 600;
+
+            var barWidth = width/movies_by_year.length;
+            var gap = 4;
+
+            var by_year = new pv.Panel().width(width).height(height+5);
+            
+            by_year.add(pv.Bar)
+                .data(movies_by_year)
+                .bottom(0)
+                .width(barWidth-gap)
+                .height(function(d) d.value)
+                .left(function() this.index * barWidth + 30)
+                .anchor("bottom").add(pv.Label)
+                    .text(function(d) d.key)
+                    .textBaseline("middle")
+                    .textStyle("#000")
+                    .textAngle(-Math.PI / 2)
+                    .textAlign("left")
+                    
+            var magnitude = pv.Scale.linear(0, max).range(0, height);
+            
+            by_year.add(pv.Rule).data(magnitude.ticks())
+                .bottom(function(d) d)
+                .left(30)
+                .right(6)
+                .strokeStyle(function(d) (d > 0) ? "white" : "black")
+              .add(pv.Label)
+                .textAlign("right")
+                .textBaseline("top")
+                .text(function(d) (d).toFixed(1));
+            
+            
+            by_year.render();
+
+        </script>
+	</div>
+	<div id="tabs-2">
+        <script type="text/javascript+protovis">
+        
+            var data = movies_by_runtime;
+            var w = 800,
+            h = 800,
+            r = w / 2,
+            sum = numbers_of_movies;
+
+            var vis = new pv.Panel()
+                .width(w)
+                .height(h);
+
+            vis.add(pv.Wedge)
+                .def("o", -1)
+                .data(data)
+                .bottom(w / 2)
+                .left(w / 2)
+                .innerRadius(r - 80)
+                .outerRadius(r)
+                .angle(function(d) d.value / sum * 2 * Math.PI)
+                .left(function() r + Math.cos(this.startAngle() + this.angle() / 2) * ((this.o() == this.index) ? 10 : 0))
+                .bottom(function() r - Math.sin(this.startAngle() + this.angle() / 2) * ((this.o() == this.index) ? 10 : 0))
+                .event("mouseover", function() this.o(this.index))
+              .anchor("center").add(pv.Label)
+                .visible(function(d) d.value > 35)
+                .textAngle(0)
+                .text(function(d) d.key);
+
+            vis.render();
+        </script>
+	</div>
+    </div>
+
+
+
+  </body>
+</html>
