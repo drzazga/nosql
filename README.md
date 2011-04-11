@@ -7,7 +7,7 @@ W celu utworzenia widokow w zaimportowanej bazie nalezy posluzyc sie plikiem map
 > couchapp push mapReduceViews.js http://sigma.ug.edu.pl:<numer_portu>/<nazwa_bazy>
 
 #Wykresy
-Wizualizacje dostepne pod adresem: [tu](http://sigma.ug.edu.pl/~bdrzazgo/)
+Wizualizacje dostepne pod adresem: (http://sigma.ug.edu.pl/~bdrzazgo/)
 Wykresy tworzone sa przy uzyciu narzedzia Protovis. W folderze js znajduja sie wszystkie potrzebne pliki z danymi, aby samemu
 je stworzyc nalezy uruchomic skrypt create_charts.rb.
 
