@@ -1,4 +1,4 @@
-ouchapp = require('couchapp');
+couchapp = require('couchapp');
 ddoc = {
   _id: '_design/app'
   , views: {}
