@@ -4,7 +4,7 @@ Klucz do API strony mozna pobrac rejestruj sie tu: http://www.themoviedb.org/acc
 
 #Widoki
 W celu utworzenia widokow w zaimportowanej bazie nalezy posluzyc sie plikiem mapReduceViews.js:
-> couchapp push mapReduceViews.js http://sigma.ug.edu.pl:<numer_portu>/<nazwa_bazy>
+> couchapp push mapReduceViews.js http://sigma.ug.edu.pl:<numer_portu>/movies
 
 #Wykresy
 Wizualizacje dostepne pod adresem: [http://sigma.ug.edu.pl/~bdrzazgo/](http://sigma.ug.edu.pl/~bdrzazgo/)
