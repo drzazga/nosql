@@ -1,7 +1,7 @@
 couchapp = require('couchapp');
 ddoc = {
-				    _id: '_design/app'
-										  , views: {}
+  _id: '_design/app'
+  , views: {}
 }
 module.exports = ddoc;
 
