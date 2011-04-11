@@ -1,26 +1,21 @@
-couchapp = require('couchapp');
+ouchapp = require('couchapp');
 ddoc = {
 				    _id: '_design/app'
 										  , views: {}
 }
 module.exports = ddoc;
 
-ddoc.views.by_isbn = {
+ddoc.views.by_date = {
 	map: function(doc) {
-		if(doc.isbn13 == "")
-			emit("one", 1);
-		else
-			emit("two", 1);
-		},
+		emit(doc.released.split("-"), 1);
+			 },
 	reduce: "_sum"
 }
 
-ddoc.views.by_numbers = {
-	map: function(doc) {
-			var cyferki = doc.isbn.split("");
-			for(var i in cyferki)
-				emit(i, 1);
-		},
+ddoc.views.by_runtime = {
+  map: function(doc) {
+	  emit([doc.runtime, doc.released.split("-")[0]], 1);
+	     },
 	reduce: "_sum"
 }
 
