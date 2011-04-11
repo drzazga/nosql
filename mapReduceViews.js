@@ -18,4 +18,4 @@ ddoc.views.by_runtime = {
 	     },
 	reduce: "_sum"
 
-
+#couchapp push mapReduceViews.js http://sigma.ug.edu.pl:<numer_portu>/books
