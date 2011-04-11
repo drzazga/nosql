@@ -4,7 +4,7 @@ Klucz do API strony mozna pobrac rejestruj sie tu: http://www.themoviedb.org/acc
 
 #Widoki
 W celu utworzenia widokow w zaimportowanej bazie nalezy posluzyc sie plikiem mapReduceViews.js:
-> couchapp push mapReduceViews.js http://sigma.ug.edu.pl:<port>/<nazwa_bazy>
+> couchapp push mapReduceViews.js http://sigma.ug.edu.pl:<numer_portu>/<nazwa_bazy>
 
 #Wykresy
 Wykresy tworzone sa przy uzyciu narzedzia Protovis. W folderze js znajduja sie wszystkie potrzebne pliki z danymi, aby samemu
